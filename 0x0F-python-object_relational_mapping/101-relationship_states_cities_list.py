@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""adds the State object “California”
-with the City “San Francisco”
-to the database hbtn_0e_100_usa"""
+"""lists all State objects, and corresponding City objects,
+contained in the database hbtn_0e_101_usa"""
 
 if __name__ == "__main__":
 
@@ -18,9 +17,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    new_city = City(name='San Francisco')
-    new = State(name='California')
-    new.cities.append(new_city)
-    session.add_all([new, new_city])
-    session.commit()
+    for state in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
     session.close()
