@@ -1,6 +1,6 @@
 #!/usr/bin/node
 // Star wars API
-const StarWarsAPI_URL = 'https://swapi-api.hbtn.io/api/films/:id';
+const StarWarsAPI_URL = 'https://swapi-api.hbtn.io/api/films/';
 const request = require('request');
 const episodeNum = process.argv[2];
 
