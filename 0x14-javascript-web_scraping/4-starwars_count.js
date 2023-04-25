@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//Wedge Antilles is character ID 18
+
 require('request')(process.argv[2], (err, r, b) => {
   if (err) console.log(err);
   else {
