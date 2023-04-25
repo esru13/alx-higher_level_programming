@@ -1,6 +1,7 @@
 #!/usr/bin/node
+// the URL to request (GET)
+const request = require('request');
 
-require('request')(process.argv[2], (e, r) => {
-  if (e) console.log(e);
-  else console.log("code", r && r.statusCode);
+request.get(process.argv[2]).on('response', function (response) {
+  console.log(`code: ${response.statusCode}`);
 });
